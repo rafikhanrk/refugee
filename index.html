@@ -1,0 +1,459 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Geographical Exploration of the Seattle Refugee Population</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link href='https://api.mapbox.com/mapbox-gl-js/v2.3.1/mapbox-gl.css' rel='stylesheet' />
+    <style>
+        body {
+            font-family: 'Helvetica Neue', Arial, sans-serif;
+            background-color: #f8f9fa;
+            color: #343a40;
+        }
+
+        #map {
+            width: 100%;
+            height: 800px;
+            margin-top: 20px;
+        }
+
+        .jumbotron {
+            background-color: #007bff;
+            color: white;
+            padding: 2rem 1rem;
+        }
+
+        .jumbotron h1 {
+            font-size: 2.5rem;
+        }
+
+        .jumbotron p {
+            font-size: 1.2rem;
+        }
+
+        h2 {
+            font-size: 1.8rem;
+            color: #0056b3;
+            margin-bottom: 1rem;
+        }
+
+        p {
+            font-size: 1.1rem;
+            line-height: 1.6;
+        }
+
+        .step {
+            margin: 50px 0;
+            padding: 20px;
+            background-color: #ffffff;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+        }
+
+        .step img {
+            max-width: 100%;
+            height: auto;
+        }
+
+        .card-deck .card {
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+        }
+
+        .card-img-top {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+
+        .card-title {
+            font-size: 1.4rem;
+            color: #007bff;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <!-- Header Section -->
+        <div class="jumbotron text-center">
+            <h1>Geographical Exploration of the Seattle Refugee Population</h1>
+            <h4>Authors:</h4>
+            <p>Rafi Hamid Khan, The Overlake School, <a href="mailto:rhkhan12@gmail.com"
+                    style="color: #f8f9fa; text-decoration: underline;">rhkhan12@gmail.com</a></p>
+            <p>Website (under construction)</p>
+            <p>What is the refugee experience in Seattle?</p>
+        </div>
+
+        <!-- Introduction Section -->
+        <div class="step" data-step="1">
+            <h2>01. Introduction</h2>
+            <p>
+                This research was created with the intent of exploring the geographical distribution and experiences of
+                refugee populations in Seattle. It is focused on the Seattle neighborhoods <strong>White Center</strong>
+                and <strong>Rainier Valley</strong>, known for their large refugee populations. Our goal is to identify
+                both the challenges and the success in the refugee experience of Seattle.
+            </p>
+        </div>
+
+        <!-- Background and Context Section -->
+        <div class="step" data-step="2">
+            <h2>02. Background and Context</h2>
+            <p>
+                For decades, Seattle has been a hub for refugee relocation, with neighborhoods like White Center and
+                Rainier Valley at the forefront of this cause. These areas are known for their cultural diversity but
+                also face significant challenges, including social vulnerability, crime rates, and language barriers.
+                Refugees in these neighborhoods struggle with acquiring affordable housing and gaining access to
+                essential services like healthcare and education.
+            </p>
+            <div id='map'></div>
+        </div>
+
+        <!-- Methodology Section -->
+        <div class="step" data-step="3">
+            <h2>03. Methodology</h2>
+            <p>
+                Data for this research was acquired through mixed methods, meaning that in exploring the data, we looked
+                at both qualitative and quantitative analyses. Data sources include Zillow analysis, Verified Tent and
+                RV
+                encampment snapshots from Seattle Police Department, and Seattle Equity data. Maps were generated using
+                QGIS.
+            </p>
+            <img src="path/to/methodology_image_placeholder.jpg" alt="Methodology Image"
+                style="width: 100%; height: 200px; object-fit: cover;">
+        </div>
+
+        <!-- Housing Market Trend Chart Section -->
+        <div class="step" data-step="4">
+            <h2>Housing Market Trend in Seattle, White Center, and Rainier Valley</h2>
+            <div id="housingMarketChartContainer" style="width: 100%; height: 400px;"></div>
+        </div>
+        <h2>04. Findings</h2>
+        <div class="card-deck">
+            <div class="card">
+                <img src="path/to/housing_prices_image_placeholder.jpg" class="card-img-top" alt="Housing Prices Image">
+                <div class="card-body">
+                    <h5 class="card-title">Housing Prices</h5>
+                    <p class="card-text">Housing prices in these neighborhoods rose gradually, suggesting that the
+                        presence of refugee communities stabilizes local economic conditions. Refugees do not lower
+                        neighborhood values.</p>
+                </div>
+            </div>
+            <div class="card">
+                <img src="safety.jpg" class="card-img-top" alt="Safety Image">
+                <div class="card-body">
+                    <h5 class="card-title">Safety</h5>
+                    <p class="card-text">The existence of refugees in these neighborhoods does not increase the crime
+                        rate. These areas are generally safer in comparison to greater Seattle.</p>
+                </div>
+            </div>
+            <div class="card">
+                <img src="path/to/housing_affordability_image_placeholder.jpg" class="card-img-top"
+                    alt="Housing Affordability Image">
+                <div class="card-body">
+                    <h5 class="card-title">Housing Affordability</h5>
+                    <p class="card-text">Refugee communities face housing burdens, with a large percentage of income
+                        spent on rent.</p>
+                </div>
+            </div>
+            <div class="card">
+                <img src="path/to/social_vulnerability_image_placeholder.jpg" class="card-img-top"
+                    alt="Social Vulnerability Image">
+                <div class="card-body">
+                    <h5 class="card-title">Social Vulnerability</h5>
+                    <p class="card-text">Rainier Valley and White Center show high levels of social vulnerability,
+                        facing challenges such as poverty, limited transportation, and crowded housing.</p>
+                </div>
+            </div>
+            <div class="card">
+                <img src="path/to/language_barriers_image_placeholder.jpg" class="card-img-top"
+                    alt="Language Barriers Image">
+                <div class="card-body">
+                    <h5 class="card-title">Language Barriers</h5>
+                    <p class="card-text">A significant proportion of residents struggle with English proficiency,
+                        limiting access to essential services and employment.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Limitations and Future Direction Section -->
+        <div class="step" data-step="5">
+            <h2>05. Limitations and Future Directions</h2>
+            <p>
+                Some datasets were incomplete or outdated, limiting the analysis. The research only focuses on Rainier
+                Valley and White Center due to time constraints. Future research should expand to other Seattle
+                neighborhoods, include updated housing prices and encampment data, and gather more comprehensive data on
+                social vulnerability.
+            </p>
+            <p>
+                <strong>Policy Implications:</strong> Future efforts should focus on improving housing policies,
+                enhancing
+                language support services, and creating culturally responsive measures to better accommodate refugee
+                populations.
+            </p>
+            <img src="path/to/limitations_image_placeholder.jpg" alt="Limitations and Future Directions Image"
+                style="width: 100%; height: 200px; object-fit: cover;">
+        </div>
+
+        <!-- Acknowledgements Section -->
+        <div class="step" data-step="6">
+            <h2>Acknowledgements</h2>
+            <p>I would like to express my thanks to Professor Bo Zhao from the University of Washington for his guidance
+                and support throughout the research.</p>
+        </div>
+    </div>
+
+    <!-- Scrollama and Bootstrap JS Integration -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.bundle.min.js"></script>
+    <script src="https://d3js.org/d3.v5.min.js"></script>
+    <script src="https://unpkg.com/scrollama"></script>
+    <link href='https://unpkg.com/maplibre-gl@2.4.0/dist/maplibre-gl.css' rel='stylesheet' />
+    <script src='https://unpkg.com/maplibre-gl@2.4.0/dist/maplibre-gl.js'></script>
+    <script>
+        // maplibregl.accessToken = 'YOUR_MAPBOX_ACCESS_TOKEN';
+        const map = new maplibregl.Map({
+            container: 'map',
+            style: 'https://basemaps.cartocdn.com/gl/positron-gl-style/style.json',
+            center: [-122.335167, 47.608013], // Coordinates for Seattle
+            zoom: 10
+        });
+
+        // Add the thematic layers to the map using the provided code block
+        // Load the GeoJSON data
+        map.on('load', () => {
+            // Add the source from the GeoJSON file
+            map.addSource('seattleData', {
+                'type': 'geojson',
+                'data': 'seattle.geojson' // Path to your GeoJSON data
+            });
+
+            // Add Housing Burden layer
+            map.addLayer({
+                'id': 'housing-burden-layer',
+                'type': 'fill',
+                'source': 'seattleData',
+                'paint': {
+                    'fill-color': [
+                        'interpolate',
+                        ['linear'],
+                        ['get', 'Housing.burden..percent.'],
+                        0, '#ffeda0',
+                        20, '#feb24c',
+                        40, '#f03b20',
+                        60, '#bd0026',
+                        80, '#800026'
+                    ],
+                    'fill-opacity': 0.6
+                },
+                'layout': {
+                    'visibility': 'visible'
+                }
+            });
+
+            // Add Linguistic Isolation layer
+            map.addLayer({
+                'id': 'linguistic-isolation-layer',
+                'type': 'fill',
+                'source': 'seattleData',
+                'paint': {
+                    'fill-color': [
+                        'interpolate',
+                        ['linear'],
+                        ['get', 'Linguistic.isolation..percent.'],
+                        0, '#08306b',
+                        20, '#2171b5',
+                        40, '#6baed6',
+                        60, '#bdd7e7',
+                        80, '#eff3ff'
+                    ],
+                    'fill-opacity': 0.6
+                },
+                'layout': {
+                    'visibility': 'none' // Initially hidden
+                }
+            });
+
+            // Add Social Vulnerability Index layer
+            map.addLayer({
+                'id': 'social-vulnerability-layer',
+                'type': 'fill',
+                'source': 'seattleData',
+                'paint': {
+                    'fill-color': [
+                        'case',
+                        ['==', ['get', 'svi'], null], 'rgba(0,0,0,0)',
+                        [
+                            'interpolate',
+                            ['linear'],
+                            ['get', 'svi'],
+                            0, '#f2f0f7',
+                            0.2, '#cbc9e2',
+                            0.4, '#9e9ac8',
+                            0.6, '#756bb1',
+                            0.8, '#54278f',
+                            1, '#3f007d'
+                        ]
+                    ],
+                    'fill-opacity': 0.6
+                },
+                'layout': {
+                    'visibility': 'none' // Initially hidden
+                }
+            });
+
+            // Create a layer switcher control
+            const layerSwitcher = document.createElement('div');
+            layerSwitcher.className = 'maplibre-layer-switcher';
+            layerSwitcher.style.position = 'absolute';
+            layerSwitcher.style.top = '10px';
+            layerSwitcher.style.right = '10px';
+            layerSwitcher.style.backgroundColor = 'white';
+            layerSwitcher.style.padding = '10px';
+            layerSwitcher.style.borderRadius = '5px';
+            layerSwitcher.style.boxShadow = '0 2px 4px rgba(0, 0, 0, 0.2)';
+
+            const layers = [
+                { id: 'housing-burden-layer', name: 'Housing Burden' },
+                { id: 'linguistic-isolation-layer', name: 'Linguistic Isolation' },
+                { id: 'social-vulnerability-layer', name: 'Social Vulnerability Index' }
+            ];
+
+            layers.forEach(layer => {
+                const button = document.createElement('button');
+                button.textContent = layer.name;
+                button.style.display = 'block';
+                button.style.marginBottom = '5px';
+                button.onclick = () => {
+                    layers.forEach(l => {
+                        map.setLayoutProperty(l.id, 'visibility', l.id === layer.id ? 'visible' : 'none');
+                    });
+                };
+                layerSwitcher.appendChild(button);
+            });
+
+            map.getContainer().appendChild(layerSwitcher);
+
+            // Make polygons clickable to show their value
+            map.on('click', (e) => {
+                const features = map.queryRenderedFeatures(e.point, {
+                    layers: ['housing-burden-layer', 'linguistic-isolation-layer', 'social-vulnerability-layer']
+                });
+                if (features.length) {
+                    const clickedFeature = features[0];
+                    const properties = clickedFeature.properties;
+                    new maplibregl.Popup()
+                        .setLngLat(e.lngLat)
+                        .setHTML(
+                            `<strong>Housing Burden:</strong> ${properties['Housing.burden..percent.'] || 'N/A'}<br>` +
+                            `<strong>Linguistic Isolation:</strong> ${properties['Linguistic.isolation..percent.'] || 'N/A'}<br>` +
+                            `<strong>Social Vulnerability Index:</strong> ${properties.svi || 'N/A'}`
+                        )
+                        .addTo(map);
+                }
+            });
+
+            map.on('mouseenter', 'housing-burden-layer', () => {
+                map.getCanvas().style.cursor = 'pointer';
+            });
+            map.on('mouseleave', 'housing-burden-layer', () => {
+                map.getCanvas().style.cursor = '';
+            });
+
+            map.on('mouseenter', 'linguistic-isolation-layer', () => {
+                map.getCanvas().style.cursor = 'pointer';
+            });
+            map.on('mouseleave', 'linguistic-isolation-layer', () => {
+                map.getCanvas().style.cursor = '';
+            });
+
+            map.on('mouseenter', 'social-vulnerability-layer', () => {
+                map.getCanvas().style.cursor = 'pointer';
+            });
+            map.on('mouseleave', 'social-vulnerability-layer', () => {
+                map.getCanvas().style.cursor = '';
+            });
+        });
+
+
+
+        const scroller = scrollama();
+
+        scroller
+            .setup({
+                step: ".step",
+                offset: 0.5,
+                debug: false,
+            })
+            .onStepEnter((response) => {
+                response.element.classList.add("active");
+            })
+            .onStepExit((response) => {
+                response.element.classList.remove("active");
+            });
+    </script>
+    <script src="https://code.highcharts.com/highcharts.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            Highcharts.chart('housingMarketChartContainer', {
+                chart: {
+                    type: 'line'
+                },
+                title: {
+                    text: 'Housing Market Trend in Seattle, White Center, and Rainier Valley'
+                },
+                xAxis: {
+                    categories: ['2017', '2018', '2019', '2020', '2021', '2022'],
+                    title: {
+                        text: 'Year'
+                    }
+                },
+                yAxis: {
+                    title: {
+                        text: 'Housing Prices (USD)'
+                    },
+                    min: 0
+                },
+                legend: {
+                    layout: 'vertical',
+                    align: 'right',
+                    verticalAlign: 'middle'
+                },
+                series: [
+                    {
+                        name: 'Seattle',
+                        data: [450000, 470000, 490000, 500000, 520000, 550000]
+                    },
+                    {
+                        name: 'White Center',
+                        data: [300000, 320000, 340000, 360000, 380000, 400000]
+                    },
+                    {
+                        name: 'Rainier Valley',
+                        data: [320000, 340000, 360000, 370000, 390000, 410000]
+                    }
+                ],
+                responsive: {
+                    rules: [{
+                        condition: {
+                            maxWidth: 500
+                        },
+                        chartOptions: {
+                            legend: {
+                                layout: 'horizontal',
+                                align: 'center',
+                                verticalAlign: 'bottom'
+                            }
+                        }
+                    }]
+                }
+            });
+        });
+    </script>
+</body>
+
+</html>
